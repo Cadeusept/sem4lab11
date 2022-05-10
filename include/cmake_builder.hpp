@@ -5,7 +5,11 @@
 
 #include <stdexcept>
 #include <async++.h>
+#include <boost/process.hpp>
 
+namespace bp = boost::process;
+
+int building_fun(std::string build_type, int timeout);
 
 
 
