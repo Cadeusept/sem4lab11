@@ -9,7 +9,7 @@
 
 namespace bp = boost::process;
 
-int building_fun(std::string build_type, int timeout);
+int building_fun(const std::string build_type, int timeout);
 
 
 

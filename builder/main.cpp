@@ -36,13 +36,14 @@ int main(int argc, char* argv[]) {
         if (vm.count("config") &&
             std::string("Release release RELEASE").find(
               vm["config"].as<std::string>()) != std::string::npos)
-            building_fun("Release");
+            building_fun("Release", timeout);
         else
-            building_fun("Debug");
+            building_fun("Debug", timeout);
 
         std::cout << "Build finished" << std::endl;
     });
 
+    //TODO: доделать установку и упаковку
     if (vm.count("install"))
         auto install = async::spawn();
 
