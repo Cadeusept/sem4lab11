@@ -3,6 +3,10 @@
 #ifndef INCLUDE_EXAMPLE_HPP_
 #define INCLUDE_EXAMPLE_HPP_
 
-auto example() -> void;
+#include <stdexcept>
+#include <async++.h>
+
+
+
 
 #endif // INCLUDE_EXAMPLE_HPP_

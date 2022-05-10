@@ -31,13 +31,22 @@ string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
 
+hunter_add_package(Boost)
+find_package(Boost COMPONENTS program_options filesystem regex)
+
+hunter_add_package(BoostProcess)
+find_package(BoostProcess CONFIG REQUIRED)
+
+hunter_add_package(Async++)
+find_package(Async++ CONFIG REQUIRED)
+
 add_library(${PROJECT_NAME} STATIC
   # enum your files and delete this comment
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/example.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/cmake_builder.cpp
 )
 
 add_executable(builder
-  ${CMAKE_CURRENT_SOURCE_DIR}/demo/main.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/builder/main.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -45,12 +54,17 @@ target_include_directories(${PROJECT_NAME} PUBLIC
   "$<INSTALL_INTERFACE:include>"
 )
 
-target_link_libraries(builder ${PROJECT_NAME})
+target_link_libraries(builder ${PROJECT_NAME}
+        Boost::program_options
+        BoostProcess::boost_process
+        Boost::regex
+        Boost::filesystem
+        Async++::Async++)
 
 if(BUILD_TESTS)
   add_executable(tests
     # TODO: enum your files and delete this comment
-    ${CMAKE_CURRENT_SOURCE_DIR}/tests/example.cpp
+          ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
   )
   target_link_libraries(tests ${PROJECT_NAME} GTest::gtest_main)
   enable_testing()
