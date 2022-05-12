@@ -32,7 +32,7 @@ hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
 
 hunter_add_package(Boost)
-find_package(Boost COMPONENTS program_options filesystem regex)
+find_package(Boost COMPONENTS program_options filesystem system regex)
 
 hunter_add_package(BoostProcess)
 find_package(BoostProcess CONFIG REQUIRED)
@@ -59,6 +59,7 @@ target_link_libraries(builder ${PROJECT_NAME}
         BoostProcess::boost_process
         Boost::regex
         Boost::filesystem
+        Boost::system
         Async++::Async++)
 
 if(BUILD_TESTS)
