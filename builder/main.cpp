@@ -64,7 +64,6 @@ int main(int argc, char* argv[]) {
         time_spent += end_2 - end_1;
     });
 
-    //TODO: доделать установку и упаковку
     if (vm.count("install") && res_1 == 0) {
         auto install_task = building_task.then(
                                               [&res_2, timeout, &time_spent,
