@@ -55,6 +55,5 @@ void check_time(bp::child &process, const time_t &timeout) {
 
 time_t time_now() {
     return std::chrono::system_clock::to_time_t(
-        std::chrono::system_clock::now()
-    );
+        std::chrono::system_clock::now());
 }

@@ -1,12 +1,13 @@
 // Copyright 2021 Your Name <your_email>
 
-#ifndef INCLUDE_EXAMPLE_HPP_
-#define INCLUDE_EXAMPLE_HPP_
+#ifndef INCLUDE_CMAKE_BUILDER_HPP_
+#define INCLUDE_CMAKE_BUILDER_HPP_
 
 #include <stdexcept>
 #include <async++.h>
 #include <boost/process.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
+#include <string>
 
 namespace bp = boost::process;
 
@@ -18,4 +19,4 @@ void check_time(bp::child &process, const time_t &timeout);
 
 time_t time_now();
 
-#endif // INCLUDE_EXAMPLE_HPP_
+#endif // INCLUDE_CMAKE_BUILDER_HPP_
