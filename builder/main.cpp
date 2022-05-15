@@ -46,7 +46,6 @@ int main(int argc, char* argv[]) {
     int res_1 = 0;
     int res_2 = 0;
     time_t time_spent = 0;
-    time_t begin_time = time_now();
 
     auto building_task = async::spawn([&res_1, timeout, &time_spent,
                                        command_1, command_2] () mutable {
@@ -86,9 +85,5 @@ int main(int argc, char* argv[]) {
           });
         }
     }
-
-    std::cout << "Execution time: "
-              << time_now() - begin_time
-              << std::endl;
     return 0;
 }
